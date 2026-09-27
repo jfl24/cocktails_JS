@@ -1,6 +1,6 @@
 # Gestionnaire de cocktails avec JS/HTML/CSS
 
-## Projet en POO JavaScript pour développer mes compétence JS, HTML et CSS qui permet de filtrer, trier, rechercher et afficher des cocktails présents dans un fichier JSON.
+### Projet en POO JavaScript pour développer mes compétence JS, HTML et CSS qui permet de filtrer, trier, rechercher et afficher des cocktails présents dans un fichier JSON.
 
 ## 🛠️ Technologies utilisées
 - HTML5
