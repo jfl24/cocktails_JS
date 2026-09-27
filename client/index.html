@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="utilitaires/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="utilitaires/bootstrap-icons/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="utilitaires/fontawesome-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap"
+      rel="stylesheet"
+    />
+    <script src="utilitaires/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    <title>Cocktails</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary barre-nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" id="lien-accueil"
+            ><i class="fas fa-cocktail"></i>Accueil</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto gap-5 fs-5">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="number"
+                  placeholder="Prix minimum"
+                  aria-label="Search"
+                  min="0"
+                  id="prix-min"
+                />
+                <input
+                  class="form-control me-2"
+                  type="number"
+                  placeholder="Prix maximum"
+                  aria-label="Search"
+                  min="0"
+                  id="prix-max"
+                />
+                <button
+                  class="btn btn-outline-success d-flex align-items-center"
+                  type="submit"
+                  id="bouton-filtrer-prix"
+                >
+                  Prix <span><i class="fa-solid fa-dollar-sign"></i></span>
+                </button>
+              </form>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                  id="recherche-ingredients"
+                  ><i class="fa-solid fa-wine-bottle"></i>Chercher par
+                  ingrédient</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Catégories
+                </a>
+                <ul class="dropdown-menu" id="dropdown-categories"></ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Trier
+                </a>
+                <ul class="dropdown-menu" id="dropdown-tri">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="name"
+                      data-ordre="asc"
+                      >Nom (A - Z)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="name"
+                      data-ordre="desc"
+                      >Nom (Z - A)</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="prix"
+                      data-ordre="asc"
+                      >Prix (croissant)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="prix"
+                      data-ordre="desc"
+                      >Prix (décroissant)</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="nb_ing"
+                      data-ordre="asc"
+                      >Nombre d'ingrédients (croissant)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-champ="nb_ing"
+                      data-ordre="desc"
+                      >Nombre d'ingrédients (décroissant)</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex form-nom" role="search" id="recherche-nom">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Chercher par nom"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">Nom</button>
+            </form>
+            <form class="d-flex" role="search" id="recherche-id">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Chercher par ID"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">ID</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main-content">
+      <div class="container-fluid">
+        <div id="lst_cocktails"></div>
+        <div id="recherche-ingredient" class="hidden"></div>
+      </div>
+    </main>
+    <footer class="footer-perso">&copy;-Jean-François Pierre-2026</footer>
+  </body>
+</html>
